@@ -73,8 +73,8 @@ article-share/
 
 ## License
 
-[License information goes here]
+This project is licensed under the MIT License.
 
 ## Credits
 
-[Credits information goes here] 
+- Carl Du Plessis @ Fyve.dev (wynand5) 
