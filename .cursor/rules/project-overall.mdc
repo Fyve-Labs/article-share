@@ -1,0 +1,7 @@
+---
+description: Used for any commands in this project
+globs: 
+alwaysApply: false
+---
+
+the intial product requirements document can be found int [Original-prd.md](mdc:Documents/Original-prd.md)

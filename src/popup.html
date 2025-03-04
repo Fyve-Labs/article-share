@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Share</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Article Share</h1>
+    </header>
+    
+    <main>
+      <div id="extraction-status">
+        <p>Loading article content...</p>
+        <div class="spinner"></div>
+      </div>
+      
+      <div id="article-info" class="hidden">
+        <h2 id="article-title"></h2>
+        <p id="article-metadata"></p>
+      </div>
+      
+      <div id="sharing-context" class="hidden">
+        <h3>Why are you sharing this?</h3>
+        <textarea id="context-input" placeholder="e.g., Relevant for our current project, contains useful insights about..."></textarea>
+      </div>
+      
+      <div id="audience-selection" class="hidden">
+        <h3>Who are you sharing with?</h3>
+        <select id="audience-select">
+          <option value="technical-team">Technical Team</option>
+          <option value="business-stakeholders">Business Stakeholders</option>
+          <option value="general-audience">General Professional Network</option>
+          <option value="custom">Custom Audience</option>
+        </select>
+        <div id="custom-audience" class="hidden">
+          <input type="text" id="custom-audience-input" placeholder="Describe your audience">
+        </div>
+      </div>
+      
+      <div id="summary-container" class="hidden">
+        <h3>Your Summary</h3>
+        <div id="summary-loading" class="hidden">
+          <p>Generating summary...</p>
+          <div class="spinner"></div>
+        </div>
+        <div id="summary-content" contenteditable="true"></div>
+      </div>
+      
+      <div id="action-buttons" class="hidden">
+        <button id="copy-btn">Copy to Clipboard</button>
+        <button id="regenerate-btn">Regenerate Summary</button>
+      </div>
+    </main>
+    
+    <footer>
+      <p id="status-message"></p>
+    </footer>
+  </div>
+  
+  <script src="js/popup.js"></script>
+</body>
+</html> 
