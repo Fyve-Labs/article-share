@@ -73,8 +73,11 @@ article-share/
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the LGPL (Lesser General Public License). 
+
+The LGPL allows developers to use, modify, and distribute the software, but it requires that any modifications to the original code be made available under the same license. This means that while you can link to the library in proprietary software, any changes to the LGPL-licensed code itself must be shared with the community.
 
 ## Credits
 
+- James Pratt @ Fyve.dev (prattatx)
 - Carl Du Plessis @ Fyve.dev (wynand5) 
