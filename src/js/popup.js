@@ -220,6 +220,12 @@ function displaySummary(summary) {
   // Set the summary content
   summaryContent.textContent = summary;
   
+  // Add preview info
+  const previewInfo = document.createElement('div');
+  previewInfo.classList.add('markdown-info');
+  previewInfo.innerHTML = '<p><small>Your summary will be copied in Markdown format.</small></p>';
+  summaryContainer.insertBefore(previewInfo, actionButtons);
+  
   // Make the summary content editable
   summaryContent.focus();
 }
@@ -252,9 +258,10 @@ function copyToClipboard() {
   
   // Get the article URL from articleData
   const articleUrl = articleData && articleData.url ? articleData.url : window.location.href;
+  const articleTitle = articleData && articleData.title ? articleData.title : "Article";
   
-  // Combine URL and summary for copying
-  const textToCopy = `${articleUrl}\n\n${summaryText}`;
+  // Combine URL and summary for copying, formatted in Markdown
+  const textToCopy = `# [${articleTitle}](${articleUrl})\n\n${formatSummaryAsMarkdown(summaryText)}`;
   
   navigator.clipboard.writeText(textToCopy)
     .then(() => {
@@ -263,7 +270,7 @@ function copyToClipboard() {
       
       // Show status message
       if (statusMessage) {
-        statusMessage.textContent = 'Copied to clipboard!';
+        statusMessage.textContent = 'Copied to clipboard in Markdown format!';
         statusMessage.classList.remove('hidden');
       }
       
@@ -281,6 +288,41 @@ function copyToClipboard() {
         statusMessage.classList.remove('hidden');
       }
     });
+}
+
+/**
+ * Format the summary text as Markdown
+ */
+function formatSummaryAsMarkdown(text) {
+  // Split the text by lines
+  const lines = text.split('\n');
+  let markdownText = '';
+  let inBulletPoints = false;
+  
+  for (let line of lines) {
+    // If line starts with "Key points:" make it a bold heading
+    if (line.trim().startsWith('Key points:')) {
+      markdownText += `\n## ${line.trim()}\n\n`;
+    }
+    // If line starts with a bullet point character
+    else if (line.trim().startsWith('•')) {
+      // Convert bullet points to Markdown list items
+      const bulletContent = line.trim().substring(1).trim();
+      markdownText += `- ${bulletContent}\n`;
+      inBulletPoints = true;
+    }
+    // For regular paragraphs
+    else if (line.trim()) {
+      // Add paragraph spacing when transitioning from bullet points
+      if (inBulletPoints) {
+        markdownText += '\n';
+        inBulletPoints = false;
+      }
+      markdownText += `${line.trim()}\n\n`;
+    }
+  }
+  
+  return markdownText.trim();
 }
 
 /**

@@ -10,6 +10,7 @@ A Chrome extension that helps you share online articles with personalized contex
 - **Summary Generation**: Creates a concise summary based on article content and specified audience
 - **Editing Capabilities**: Edit the generated summary before sharing
 - **Copy to Clipboard**: Easily copy the final summary to share on any platform
+- **Markdown Formatting**: Summaries are automatically formatted in Markdown for clean sharing on platforms that support it
 
 ## Installation (Development)
 
@@ -32,8 +33,8 @@ A Chrome extension that helps you share online articles with personalized contex
 4. Enter why you're sharing this article in the context field
 5. Select your target audience from the dropdown
 6. Review and edit the generated summary
-7. Click "Copy to Clipboard" to copy the summary
-8. Paste the summary into your preferred sharing platform
+7. Click "Copy to Clipboard" to copy the summary in Markdown format
+8. Paste the summary into your preferred sharing platform that supports Markdown (like GitHub, Slack, Discord, etc.)
 
 ## Development Notes
 
